@@ -1,4 +1,4 @@
-# Guitar Tuning App
+# 🎸 Guitar Tuning App
 
 ## Description
 

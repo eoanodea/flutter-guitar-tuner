@@ -11,10 +11,12 @@ import 'constants.dart';
 import 'resuable_card.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -36,10 +38,11 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     isRecording = isRecording;
+
     detector.onRecorderStateChanged.listen((event) {
       double castedPitch = event["pitch"] as double;
 
-      if (castedPitch != -1) {
+      if (castedPitch != -1 && isRecording) {
         //Uses the pitchupDart library to check a given pitch for a Guitar
         final handledPitchResult = pitchupDart.handlePitch(castedPitch);
 
